@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function TovarCard({title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount}) {
 
     return(
@@ -20,6 +22,7 @@ function TovarCard({title, description, price, username, status, imageUrl, creat
                     </div>
                 </div>
             </div>
+            <Link to="/detailsoftovar">Детали о товаре</Link>
         </div>
     )
 }

@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom"
+import { UseTovarStore } from "../store/store"
 
 function DetailOfTovar()
 {
+    const {jwt} = UseTovarStore();
     return(
     <div className="item-detail">
     <Link to="/" classNameName="back-link">← Вернуться к списку товаров</Link>
         <div className="item-header">
             <div>
-                <img src="https://via.placeholder.com/600x400/3498db/ffffff?text=Laptop" alt="Ноутбук Dell XPS 15" className="item-image-large"/>
+                <img src="https://i.pinimg.com/originals/b0/e6/f8/b0e6f896f56e6acc7bbd3de6846854fe.png" alt="Ноутбук Dell XPS 15" className="item-image-large"/>
             </div>
             <div className="item-info">
                 <span className="item-status">Активно</span>
@@ -25,7 +27,7 @@ function DetailOfTovar()
                 <div className="item-description-full">
                     Мощный ноутбук для работы и игр в отличном состоянии. 
                     
-                    
+                    <p></p>
                     <strong>Характеристики:</strong>
                     <ul>
                         <li>Процессор: Intel Core i7-12700H (12 ядер)</li>
@@ -45,6 +47,7 @@ function DetailOfTovar()
                     <div className="current-price">65 000 ₽</div>
                     <div className="highest-bid">Текущая ставка: 70 000 ₽</div>
 
+         {jwt ? (
                     <form className="bid-form">
                         <input 
                             type="number" 
@@ -55,9 +58,10 @@ function DetailOfTovar()
                         />
                         <button type="submit" className="btn-bid">Сделать ставку</button>
                     </form>
+                     ) : ( <></> )}
                 </div>
-
-
+                  {/* Навигация для владельца товара */}
+                 <button class="btn-delete">Удалить товар</button>
             </div>
         </div>
 

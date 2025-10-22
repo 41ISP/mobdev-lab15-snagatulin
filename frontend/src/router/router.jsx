@@ -4,6 +4,7 @@ import SignUp from "../pages/SignUp"
 import Layout from "../components/Layout"
 import Logout from "../pages/Logout"
 import SpicokOfTovar from "../pages/ListOfTovar"
+import DetailOfTovar from "../components/DetailOfTovar"
 
 export const router = createBrowserRouter([
 {
@@ -23,8 +24,14 @@ export const router = createBrowserRouter([
 {
     path: "/",
     element: <Layout/>,
-    children: [ { index:true, element:<SpicokOfTovar/>}]
+    children: [ { index:true, element:<SpicokOfTovar/>} ]
 },
+
+{
+    path: "/detailsoftovar",
+    element: <DetailOfTovar/>
+}
+
 
 
 
