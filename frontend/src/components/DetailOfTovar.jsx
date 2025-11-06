@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom"
-import { UseTovarStore } from "../store/store"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { UseTovarStore, useUserStore } from "../store/store";
 
 function DetailOfTovar()
 {
-    const {jwt} = UseTovarStore();
+const {jwt} = useUserStore();
+const { id } = useParams();
+const { tovar } = UseTovarStore();
+
+
+
     return(
+    <>
     <div className="item-detail">
-    <Link to="/" classNameName="back-link">← Вернуться к списку товаров</Link>
+    <Link to="/" className="back-link">← Вернуться к списку товаров</Link>
         <div className="item-header">
             <div>
                 <img src="https://i.pinimg.com/originals/b0/e6/f8/b0e6f896f56e6acc7bbd3de6846854fe.png" alt="Ноутбук Dell XPS 15" className="item-image-large"/>
@@ -61,7 +68,7 @@ function DetailOfTovar()
                      ) : ( <></> )}
                 </div>
                   {/* Навигация для владельца товара */}
-                 <button class="btn-delete">Удалить товар</button>
+                 <button className="btn-delete">Удалить товар</button>
             </div>
         </div>
 
@@ -86,6 +93,7 @@ function DetailOfTovar()
                 </div>
                 </div>
                 </div>
+        </>
     )
 }
 

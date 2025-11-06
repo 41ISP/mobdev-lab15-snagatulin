@@ -15,7 +15,7 @@ function MainPage() {
            <ul className="nav-links" id="auth-nav">
             <li><a href="/" className="active">Мои товары</a></li>
             <li><a href="/my-bids">Мои ставки</a></li>
-            <li><a href="/create-item" className="btn-primary">+ Создать товар</a></li>
+            <li><Link to="/createtovar" className="btn-primary">+ Создать товар</Link></li>
             <li className="user-info">
               <span className="username">username</span>
               <Link className="btn-logout" to={"/logout"}>Выйти</Link>

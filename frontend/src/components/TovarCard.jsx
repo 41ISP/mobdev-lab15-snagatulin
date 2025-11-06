@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function TovarCard({title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount}) {
+function TovarCard({id, title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount}) {
 
     return(
      <div className="item-card">
@@ -22,7 +22,7 @@ function TovarCard({title, description, price, username, status, imageUrl, creat
                     </div>
                 </div>
             </div>
-            <Link to="/detailsoftovar">Детали о товаре</Link>
+            <Link to="/detailsofitem">Детали о товаре</Link>
         </div>
     )
 }
