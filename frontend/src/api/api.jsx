@@ -75,14 +75,16 @@ export const RealUser = async() => {
     }
 }
 
-export const CreateTovar = async() => {
-    const {jwt} = useUserStore.getState()
-    const req = await fetch("https://kitek.ktkv.dev/marketplace/api/items",  {
-                method: "POST",
-                headers: {
-                    Authorization: "Bearer " + jwt.token,
-                },
-            })  
-     const res = await req.json();
-     return res;
-}
+ export const CreateTovar = async (item) => {
+  const { jwt } = useUserStore.getState();
+  const req = await fetch("https://kitek.ktkv.dev/marketplace/api/items", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + jwt.token,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(item),
+  });
+  const res = await req.json();
+  return res;
+};
