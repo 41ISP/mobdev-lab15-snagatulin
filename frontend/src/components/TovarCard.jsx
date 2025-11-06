@@ -22,7 +22,7 @@ function TovarCard({id, title, description, price, username, status, imageUrl, c
                     </div>
                 </div>
             </div>
-            <Link to="/detailsofitem">Детали о товаре</Link>
+            <Link to="/detailsoftovar">Детали о товаре</Link>
         </div>
     )
 }

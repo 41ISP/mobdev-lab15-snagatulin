@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useUserStore } from '../store/store';
+import { useEffect, useState } from 'react';
+import { RealUser } from '../api/api';
 
 function MainPage() {
-    const {jwt} = useUserStore()
+    const { jwt } = useUserStore();
+
     return(
     <div>
       <header>
@@ -17,7 +20,7 @@ function MainPage() {
             <li><a href="/my-bids">Мои ставки</a></li>
             <li><Link to="/createtovar" className="btn-primary">+ Создать товар</Link></li>
             <li className="user-info">
-              <span className="username">username</span>
+          <span className="username">username</span> 
               <Link className="btn-logout" to={"/logout"}>Выйти</Link>
             </li>
           </ul>

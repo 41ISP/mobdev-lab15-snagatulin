@@ -2,9 +2,10 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import Input from "./Input"
 import Button from "./Button"
-import Textarea from "./Textarea"
-import { useUserStore } from "../store/store"
+import Textarea from "./TextArea"
 import { CreateTovar } from "../api/api"
+import { useUserStore } from "../store/store"
+
 
 
 const CreateProductPage = () => {
