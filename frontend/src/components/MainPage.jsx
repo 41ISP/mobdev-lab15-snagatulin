@@ -5,6 +5,18 @@ import { RealUser } from '../api/api';
 
 function MainPage() {
     const { jwt } = useUserStore();
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+    const fetchUser = async () => {
+      if (jwt) {
+        const data = await RealUser();
+        setUserData(data);
+      }
+    };
+
+    fetchUser();
+  }, [jwt]);
 
     return(
     <div>
@@ -16,11 +28,11 @@ function MainPage() {
           {/* Навигация для аутентифицированных пользователей */}
          {jwt ? (
            <ul className="nav-links" id="auth-nav">
-            <li><a href="/" className="active">Мои товары</a></li>
+            <li><Link to="/mytovars" className="active">Мои товары</Link></li>
             <li><a href="/my-bids">Мои ставки</a></li>
             <li><Link to="/createtovar" className="btn-primary">+ Создать товар</Link></li>
             <li className="user-info">
-          <span className="username">username</span> 
+          <span className="username">{userData?.username || 'Пользователь'}</span> 
               <Link className="btn-logout" to={"/logout"}>Выйти</Link>
             </li>
           </ul>

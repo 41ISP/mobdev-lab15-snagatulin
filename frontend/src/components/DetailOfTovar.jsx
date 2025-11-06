@@ -68,7 +68,7 @@ const { tovar } = UseTovarStore();
                      ) : ( <></> )}
                 </div>
                   {/* Навигация для владельца товара */}
-                 <button className="btn-delete">Удалить товар</button>
+                 {jwt ? ( <button className="btn-delete">Удалить товар</button> ) : ( <></> )}
             </div>
         </div>
 

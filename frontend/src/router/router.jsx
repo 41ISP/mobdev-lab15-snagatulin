@@ -6,6 +6,7 @@ import Logout from "../pages/Logout"
 import SpicokOfTovar from "../pages/ListOfTovar"
 import DetailOfTovar from "../components/DetailOfTovar"
 import CreateProductPage from "../components/CreateTovar"
+import Tovars1 from "../components/MyTovar"
 
 export const router = createBrowserRouter([
 {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
 {
     path: "/createtovar",
     element: <CreateProductPage/>
+},
+{
+    path:"/mytovars",
+    element: <Tovars1/>
 }
 
 

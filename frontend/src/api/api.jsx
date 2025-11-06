@@ -57,23 +57,26 @@ export const getSpisok = async () => {
     }
 }
 
-export const RealUser = async() => {
-    try {
-    const { jwt } = useUserStore.getState()
+export const RealUser = async () => {
+  try {
+    const { jwt } = useUserStore.getState();
     const req = await fetch(
-            "https://kitek.ktkv.dev/marketplace/api/auth/me",             {
-                method: "GET",
-                headers: {
-                    Authorization: "Bearer " + jwt.token,
-                },
-            })
+      "https://kitek.ktkv.dev/marketplace/api/auth/me",
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + jwt.token,
+        },
+      }
+    );
     const data = await req.json();
     console.log("Данные пользователя:", data);
-    return data;
-    } catch (err) {
-        console.error(err)
-    }
-}
+    return data; 
+  } catch (err) {
+    console.error(err);
+    return null; 
+  }
+};
 
  export const CreateTovar = async (item) => {
   const { jwt } = useUserStore.getState();
