@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
     element: <Tovars1/>
 },
 {
-    path:"/mybids",
+    path:"/my-bids",
     element: <MyBids/>
 },
 {

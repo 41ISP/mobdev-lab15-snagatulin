@@ -2,11 +2,6 @@ function MyBids()
 {
 
 
-
-
-
-
-    
   return( 
     <>
         <div class="page-header">
