@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { StavkiNaTovar } from "../api/api";
 
 function TovarCard({title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount, id}) {
+    const { jwt } = useUserStore();
 
-const navigate = useNavigate();
 
     return(
      <div className="item-card">
@@ -27,7 +27,9 @@ const navigate = useNavigate();
                     </div>
                 </div>
             </div>
-            <Link to={`/createbid/${id}`}>Сделать ставку</Link>
+             {jwt ? (
+            <Link to={`/createbid/${id}`}>Сделать ставку</Link>   ) : ( <></> )}
+
             <Link to={`/detailsoftovar/${id}`}>История ставок</Link>
         </div>
     )
