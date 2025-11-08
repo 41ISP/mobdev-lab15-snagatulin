@@ -24,6 +24,7 @@ function CreateBid() {
       setJWT(json.token)
       navigate("/");
     } catch (err) {
+     navigate("/");
       console.error(err);
       setError(err.message);
     }
