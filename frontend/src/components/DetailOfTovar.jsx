@@ -1,21 +1,43 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { UseTovarStore, useUserStore } from "../store/store";
-import { StavkiNaTovar } from "../api/api";
+import { DeleteTovar, StavkiNaTovar } from "../api/api";
 
 function DetailOfTovar()
 {
   const { id } = useParams();
+  const { jwt, userId } = useUserStore();
   const [bids, setBids] = useState([]);
+  const [ownerId, setOwnerId] = useState(userId); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await StavkiNaTovar(id);
+
       setBids(data);
     }
+
+
+
+
     fetchData();
   }, [id]);
 
+    const handleFetch1 = async (e) => {
+            try {
+                e.preventDefault();
+                await DeleteTovar(id);
+                navigate("/");
+              
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+
+
+const canDelete = jwt && ownerId === userId && bids.length === 0;
   return (
     <>
       <div className="price-section">
@@ -40,6 +62,11 @@ function DetailOfTovar()
             ) : (
               <p>Нет ставок</p>
             )}
+             {jwt && canDelete && (
+                <form id="create-item-form" onSubmit={handleFetch1}>
+                <button className="btn-delete">Удалить товар</button>
+                </form>
+                )}
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { UseTovarStore, useUserStore } from "../store/store";
 import { useEffect } from "react";
 import { StavkiNaTovar } from "../api/api";
 
-function TovarCard({title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount}) {
-const { id } = useParams();
+function TovarCard({title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount, id}) {
+
 const navigate = useNavigate();
 
     return(
@@ -27,8 +27,8 @@ const navigate = useNavigate();
                     </div>
                 </div>
             </div>
-            <Link to="/createbid">Сделать ставку</Link>
-            <Link to="/detailsoftovar" onClick={() => navigate(`/detailsoftovar/${id}`)}>История ставок</Link>
+            <Link to={`/createbid/${id}`}>Сделать ставку</Link>
+            <Link to={`/detailsoftovar/${id}`}>История ставок</Link>
         </div>
     )
 }

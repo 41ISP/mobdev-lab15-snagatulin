@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 import { UseTovarStore, useUserStore } from "../store/store"
 import TovarCard from "./TovarCard";
 import { DeleteTovar } from "../api/api";
+import { useParams } from "react-router-dom";
 
 const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, averageItemPrice }) => {
+    const { id } = useParams();
     const { jwt } = useUserStore();
     const { tovar, getTovar } = UseTovarStore();
 
@@ -21,13 +23,7 @@ const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, a
 
     }, []);
 
-            const handleFetch1 = async () => {
-            try {
-                await DeleteTovar();
-            } catch (err) {
-                console.error(err);
-            }
-        };
+
 
     const myTovars = tovar?.filter(item => item.userId === userId);
 
@@ -42,7 +38,6 @@ const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, a
                             <TovarCard key={tovar.id} {...tovar} />
                         ))}
                     </div>
-                    {jwt ? ( <button className="btn-delete" onClick={handleFetch1} >Удалить товар</button> ) : ( <></> )}
                 </div>
             </div> 
         ) : ( 

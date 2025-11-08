@@ -32,9 +32,11 @@ export const router = createBrowserRouter([
 },
 
 {
-    path: "/detailsoftovar",
+    path: "/detailsoftovar/:id",
     element: <DetailOfTovar/>
 },
+
+
 {
     path: "/createtovar",
     element: <CreateProductPage/>
@@ -48,7 +50,7 @@ export const router = createBrowserRouter([
     element: <MyBids/>
 },
 {
-    path:"/createbid",
+    path:"/createbid/:id",
     element: <CreateBid/>
 }
 

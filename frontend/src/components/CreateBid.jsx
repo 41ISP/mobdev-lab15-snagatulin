@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Input1 from "./Input1"
 import { useUserStore } from "../store/store";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { CreateStavka } from "../api/api";
 
 function CreateBid() {
+  const { id } = useParams();
   const [error, setError] = useState("");
   const { setJWT } = useUserStore();
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ function CreateBid() {
     };
 
     try {
-      const json = await CreateBid(bid); 
+      const json = await CreateStavka(bid, id); 
       if (!json.success) throw new Error(json.error)
       setJWT(json.token)
       navigate("/");
@@ -30,18 +32,18 @@ function CreateBid() {
 
     return(
         <>
-                <div class="price-section">
+                <div className="price-section">
 
-                    <form class="bid-form" onSubmit={handleSubmit}>
+                    <form className="bid-form" onSubmit={handleSubmit}>
                         <Input1
                             name = "amount"
                             type="number" 
-                            class="bid-input" 
+                            className="bid-input" 
                             placeholder="Введите вашу ставку (мин. 70 001 ₽)"
                             min="70001"
                             step="100"
                         />
-                        <button type="submit" class="btn-bid">Сделать ставку</button>
+                        <button type="submit" className="btn-bid">Сделать ставку</button>
                     </form>
                 </div>
             </>

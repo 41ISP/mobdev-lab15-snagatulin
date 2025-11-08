@@ -34,6 +34,7 @@ const CreateProductPage = () => {
     } catch (err) {
       console.error(err);
       setError(err.message);
+      navigate("/")
     }
   };
 
@@ -92,8 +93,6 @@ const CreateProductPage = () => {
                 className="form-input with-prefix"
                 name="price"
                 placeholder="5000"
-                min="1"
-                step="100"
                 required
               />
               <span className="input-prefix">₽</span>
