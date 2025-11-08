@@ -7,6 +7,8 @@ import SpicokOfTovar from "../pages/ListOfTovar"
 import DetailOfTovar from "../components/DetailOfTovar"
 import CreateProductPage from "../components/CreateTovar"
 import Tovars1 from "../components/MyTovar"
+import MyBids from "../components/MyBids"
+import CreateBid from "../components/CreateBid"
 
 export const router = createBrowserRouter([
 {
@@ -40,6 +42,14 @@ export const router = createBrowserRouter([
 {
     path:"/mytovars",
     element: <Tovars1/>
+},
+{
+    path:"/mybids",
+    element: <MyBids/>
+},
+{
+    path:"/createbid",
+    element: <CreateBid/>
 }
 
 

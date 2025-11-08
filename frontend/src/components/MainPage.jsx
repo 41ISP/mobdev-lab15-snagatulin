@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useUserStore } from '../store/store';
 import { useEffect, useState } from 'react';
-import { RealUser } from '../api/api';
+import {RealUser} from '../api/api';
 
 function MainPage() {
     const { jwt } = useUserStore();

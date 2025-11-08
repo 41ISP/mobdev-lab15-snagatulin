@@ -32,6 +32,7 @@ const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, a
                             <TovarCard key={tovar.id} {...tovar} />
                         ))}
                     </div>
+                    {jwt ? ( <button className="btn-delete">Удалить товар</button> ) : ( <></> )}
                 </div>
             </div> 
         ) : ( 

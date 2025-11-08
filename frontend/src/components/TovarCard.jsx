@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { UseTovarStore, useUserStore } from "../store/store";
+import { useEffect } from "react";
+import { StavkiNaTovar } from "../api/api";
 
-function TovarCard({id, title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount}) {
+function TovarCard({title, description, price, username, status, imageUrl, createdAt, highestBid, bidCount}) {
+const { id } = useParams();
+const navigate = useNavigate();
 
     return(
      <div className="item-card">
@@ -11,7 +16,7 @@ function TovarCard({id, title, description, price, username, status, imageUrl, c
                 <p className="item-description">{description}</p>
                 <div className="item-footer">
                     <div>
-                        <div className="item-price">{price}</div>
+                        <div className="item-price">{price} рублей </div>
                         <div className="bid-info">
                             Текущая ставка:{highestBid}
                             <span className="bid-count">{bidCount}</span>
@@ -22,7 +27,8 @@ function TovarCard({id, title, description, price, username, status, imageUrl, c
                     </div>
                 </div>
             </div>
-            <Link to="/detailsoftovar">Детали о товаре</Link>
+            <Link to="/createbid">Сделать ставку</Link>
+            <Link to="/detailsoftovar" onClick={() => navigate(`/detailsoftovar/${id}`)}>История ставок</Link>
         </div>
     )
 }

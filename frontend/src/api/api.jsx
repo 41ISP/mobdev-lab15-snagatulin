@@ -91,3 +91,35 @@ export const RealUser = async () => {
   const res = await req.json();
   return res;
 };
+
+export const StavkiNaTovar = async (id) => {
+  try {
+    const req = await fetch(
+      "https://kitek.ktkv.dev/marketplace/api/items/${id}/bids");
+    const data = await req.json();
+    console.log("Данные ставки на товар:", data);
+    return data; 
+  } catch (err) {
+    console.error(err);
+    return null; 
+  }
+};
+
+export const DeleteTovar = async () => {
+  try {
+    const req = await fetch(
+      "https://kitek.ktkv.dev/marketplace/api/items/:id",
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + jwt.token,
+        },
+      }
+    );
+    const data = await req.json();
+    return data; 
+  } catch (err) {
+    console.error(err);
+    return null; 
+  }
+};
