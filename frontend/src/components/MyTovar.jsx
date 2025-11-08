@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { UseTovarStore, useUserStore } from "../store/store"
 import TovarCard from "./TovarCard";
+import { DeleteTovar } from "../api/api";
 
 const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, averageItemPrice }) => {
     const { jwt } = useUserStore();
@@ -17,7 +18,16 @@ const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, a
             }
         };
         handleFetch();
+
     }, []);
+
+            const handleFetch1 = async () => {
+            try {
+                await DeleteTovar();
+            } catch (err) {
+                console.error(err);
+            }
+        };
 
     const myTovars = tovar?.filter(item => item.userId === userId);
 
@@ -32,7 +42,7 @@ const Tovars1 = ({ totalItems, totalUsers, totalBids, activeItems, totalValue, a
                             <TovarCard key={tovar.id} {...tovar} />
                         ))}
                     </div>
-                    {jwt ? ( <button className="btn-delete">Удалить товар</button> ) : ( <></> )}
+                    {jwt ? ( <button className="btn-delete" onClick={handleFetch1} >Удалить товар</button> ) : ( <></> )}
                 </div>
             </div> 
         ) : ( 

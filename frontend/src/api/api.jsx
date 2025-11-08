@@ -92,6 +92,22 @@ export const RealUser = async () => {
   return res;
 };
 
+ export const CreateStavka = async (bid) => {
+  const { jwt } = useUserStore.getState();
+  const req = await fetch("https://kitek.ktkv.dev/marketplace/api/items/:id/bids", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + jwt.token,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(bid),
+  });
+  const res = await req.json();
+  return res;
+};
+
+
+
 export const StavkiNaTovar = async (id) => {
   try {
     const req = await fetch(
@@ -105,8 +121,29 @@ export const StavkiNaTovar = async (id) => {
   }
 };
 
-export const DeleteTovar = async () => {
+export const GetMyStavki = async () => {
+    const { jwt } = useUserStore.getState();
   try {
+    const req = await fetch(
+      "https://kitek.ktkv.dev/marketplace/api/bids/my", {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + jwt.token,
+      'Content-Type': 'application/json',
+    },
+      });
+    const data = await req.json();
+    console.log("Мои ставки:", data);
+    return data; 
+  } catch (err) {
+    console.error(err);
+    return null; 
+  }
+};
+
+export const DeleteTovar = async () => {
+    const { jwt } = useUserStore.getState();
+    try {
     const req = await fetch(
       "https://kitek.ktkv.dev/marketplace/api/items/:id",
       {
