@@ -52,9 +52,11 @@ export const router = createBrowserRouter([
 {
     path:"/createbid/:id",
     element: <CreateBid/>
-}
+},
 
+],
 
-
-
-])
+  {
+    basename: "/mobdev-lab15-snagatulin"
+  }
+)
