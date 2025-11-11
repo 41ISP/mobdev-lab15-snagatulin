@@ -29,7 +29,7 @@ function MainPage() {
          {jwt ? (
            <ul className="nav-links" id="auth-nav">
             <li><Link to="/mytovars" className="active">Мои товары</Link></li>
-            <li><Link href="/my-bids">Мои ставки</Link></li>
+            <li><Link to="/my-bids">Мои ставки</Link></li>
             <li><Link to="/createtovar" className="btn-primary">+ Создать товар</Link></li>
             <li className="user-info">
           <span className="username">{userData?.username || 'Пользователь'}</span> 
