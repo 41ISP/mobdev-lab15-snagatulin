@@ -1,0 +1,62 @@
+import {createBrowserRouter} from "react-router-dom"
+import SignIn from "../pages/SignIn"
+import SignUp from "../pages/SignUp"
+import Layout from "../components/Layout"
+import Logout from "../pages/Logout"
+import SpicokOfTovar from "../pages/ListOfTovar"
+import DetailOfTovar from "../components/DetailOfTovar"
+import CreateProductPage from "../components/CreateTovar"
+import Tovars1 from "../components/MyTovar"
+import MyBids from "../components/MyBids"
+import CreateBid from "../components/CreateBid"
+
+export const router = createBrowserRouter([
+{
+   path: "/signup",
+   element: <SignUp/>
+},
+{
+    path: "/signin",
+    element: <SignIn/>
+},
+
+{
+   path: "/logout",
+   element: <Logout/>
+},
+
+{
+    path: "/",
+    element: <Layout/>,
+    children: [ { index:true, element:<SpicokOfTovar/>} ]
+},
+
+{
+    path: "/detailsoftovar/:id",
+    element: <DetailOfTovar/>
+},
+
+
+{
+    path: "/createtovar",
+    element: <CreateProductPage/>
+},
+{
+    path:"/mytovars",
+    element: <Tovars1/>
+},
+{
+    path:"/my-bids",
+    element: <MyBids/>
+},
+{
+    path:"/createbid/:id",
+    element: <CreateBid/>
+},
+
+],
+
+  {
+    basename: "/mobdev-lab15-snagatulin"
+  }
+)

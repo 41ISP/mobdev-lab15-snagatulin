@@ -1,0 +1,78 @@
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { UseTovarStore, useUserStore } from "../store/store";
+import { DeleteTovar, StavkiNaTovar } from "../api/api";
+
+function DetailOfTovar()
+{
+  const { id } = useParams();
+  const { jwt, userId } = useUserStore();
+  const [bids, setBids] = useState([]);
+  const [ownerId, setOwnerId] = useState(userId); 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await StavkiNaTovar(id);
+
+      setBids(data);
+    }
+
+
+
+
+    fetchData();
+  }, [id]);
+
+    const handleFetch1 = async (e) => {
+            try {
+                e.preventDefault();
+                await DeleteTovar(id);
+                navigate("/");
+              
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+
+
+const canDelete = jwt && ownerId === userId && bids.length === 0;
+  return (
+    <>
+      <div className="price-section">
+        <div className="bids-section">
+          <div className="bids-header">
+            <h2 className="bids-title">История ставок</h2>
+          </div>
+
+          <div className="bids-list">
+            {bids.length > 0 ? (
+              bids.map((bid, index) => (
+                <div key={index} className="bid-item">
+                  <div className="bid-user">
+                    <div className="bid-details">
+                      <span className="bid-username">{bid.username}</span>
+                      <span className="bid-time">{bid.timeAgo}</span>
+                    </div>
+                  </div>
+                  <div className="bid-amount">{bid.amount} ₽</div>
+                </div>
+              ))
+            ) : (
+              <p>Нет ставок</p>
+            )}
+             {jwt && canDelete && (
+                <form id="create-item-form" onSubmit={handleFetch1}>
+                <button className="btn-delete">Удалить товар</button>
+                </form>
+                )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}     
+    
+
+export default DetailOfTovar
