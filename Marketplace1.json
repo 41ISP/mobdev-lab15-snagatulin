@@ -1,0 +1,396 @@
+{
+  "name": "Marketplace1",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "CreateStavok",
+      "filename": "CreateStavok.bru",
+      "seq": 9,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/items/:id/bids",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3NjExMDIzNzc1MjQsInVzZXJuYW1lIjoidXJhNDQiLCJpYXQiOjE3NjExMDIzNzcsImV4cCI6MTc2MTE4ODc3N30.mb6CAYuRQJRzqZ8eMgbDaP_Xgxc7b0P225_zIWGJg4A",
+            "enabled": true
+          }
+        ],
+        
+        "params": [
+          {
+            "name": "id",
+            "value": "1761102308241",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"amount\": 85000\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "CreateTovar",
+      "filename": "CreateTovar.bru",
+      "seq": 7,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/items",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3NjExMDIzNzc1MjQsInVzZXJuYW1lIjoidXJhNDQiLCJpYXQiOjE3NjExMDIzNzcsImV4cCI6MTc2MTE4ODc3N30.mb6CAYuRQJRzqZ8eMgbDaP_Xgxc7b0P225_zIWGJg4A",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"title\": \"iPhone 14\",\n  \"description\": \"Новый iPhone 14 в идеальном состоянии, все аксессуары в комплекте\",\n  \"price\": 80000,\n  \"imageUrl\": \"https://example.com/iphone.jpg\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "DeleteTovar",
+      "filename": "DeleteTovar.bru",
+      "seq": 8,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/items/:id",
+        "method": "DELETE",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3NjExMDIzNzc1MjQsInVzZXJuYW1lIjoidXJhNDQiLCJpYXQiOjE3NjExMDIzNzcsImV4cCI6MTc2MTE4ODc3N30.mb6CAYuRQJRzqZ8eMgbDaP_Xgxc7b0P225_zIWGJg4A",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "id",
+            "value": "1761102751352",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "GetMyStavki",
+      "filename": "GetMyStavki.bru",
+      "seq": 10,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/bids/my",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3NjExMDIzNzc1MjQsInVzZXJuYW1lIjoidXJhNDQiLCJpYXQiOjE3NjExMDIzNzcsImV4cCI6MTc2MTE4ODc3N30.mb6CAYuRQJRzqZ8eMgbDaP_Xgxc7b0P225_zIWGJg4A",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "GETSTATS",
+      "filename": "GETSTATS.bru",
+      "seq": 5,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/stats",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "InfaofUser",
+      "filename": "InfaofUser.bru",
+      "seq": 6,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/auth/me",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3NjExMDIzNzc1MjQsInVzZXJuYW1lIjoidXJhNDQiLCJpYXQiOjE3NjExMDIzNzcsImV4cCI6MTc2MTE4ODc3N30.mb6CAYuRQJRzqZ8eMgbDaP_Xgxc7b0P225_zIWGJg4A",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "LoginUser",
+      "filename": "LoginUser.bru",
+      "seq": 2,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/auth/login",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"username\": \"testuser\",\n  \"password\": \"password123\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Register User",
+      "filename": "Register User.bru",
+      "seq": 1,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/auth/register",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"username\": \"ura44\",\n  \"password\": \"password1234\",\n  \"email\": \"ura44@mail.ru\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "SpicokTovar",
+      "filename": "SpicokTovar.bru",
+      "seq": 3,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/items",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "STAVKINATOVAR",
+      "filename": "STAVKINATOVAR.bru",
+      "seq": 4,
+      "settings": {
+        "encodeUrl": true,
+        "timeout": 0
+      },
+      "tags": [],
+      "request": {
+        "url": "https://kitek.ktkv.dev/marketplace/api/items/:id/bids",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "id",
+            "value": "1761102308241",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "Marketplace1",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.0034208297729492188,
+    "filesCount": 10,
+    "proxy": {
+      "enabled": true,
+      "protocol": "http",
+      "hostname": "10.0.55.52",
+      "port": 3128,
+      "auth": {
+        "enabled": false,
+        "username": "",
+        "password": ""
+      },
+      "bypassProxy": ""
+    }
+  }
+}
